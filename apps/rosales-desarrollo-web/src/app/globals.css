@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Brand Colors - Rosales Desarrollo */
+  --color-brand-night: #1E2129;
+  --color-brand-night-deep: #141720;
+  --color-brand-slate: #2A2D37;
+  --color-brand-carbon: #3B3E44;
+  --color-brand-gray: #9DA2A8;
+  --color-brand-silver: #C0C5CB;
+  --color-brand-white: #FFFFFF;
+  --color-brand-bg: #F8F9FA;
+
+  /* Semantic Colors */
+  --color-background: #1E2129;
+  --color-foreground: #FFFFFF;
+
+  /* Font Family */
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
