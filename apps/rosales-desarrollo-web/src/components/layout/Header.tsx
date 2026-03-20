@@ -17,7 +17,7 @@ export function Header() {
             alt="Rosales Desarrollo"
             width={155}
             height={177}
-            className="h-10 w-auto"
+            className="h-7 w-auto"
             priority
           />
         </Link>
