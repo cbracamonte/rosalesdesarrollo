@@ -32,12 +32,6 @@ export function generatePropertyListingSchema(property: {
     name: property.name,
     description: property.description,
     url: `${SITE_URL}/propiedades/${property.slug}`,
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: property.district,
-      addressRegion: property.city,
-      addressCountry: property.country,
-    },
   };
 }
 
