@@ -3,9 +3,9 @@ import { createMetadata } from "@/lib/seo";
 import { AboutPageContent } from "@/features/about";
 
 export const metadata: Metadata = createMetadata({
-  title: "Nosotros",
+  title: "Nosotros | Quiénes somos",
   description:
-    "Conoce a Rosales Desarrollo, empresa de construcción y desarrollo inmobiliario en Perú. Nuestra misión es transformar espacios con calidad y diseño.",
+    "Somos Rosales Desarrollo, empresa de desarrollo inmobiliario en Pimentel, Chiclayo y Huanchaco. Casas y proyectos residenciales con ubicaciones estratégicas.",
   canonical: "/nosotros",
 });
 

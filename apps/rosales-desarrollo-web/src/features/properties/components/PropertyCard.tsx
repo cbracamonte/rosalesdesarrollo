@@ -1,5 +1,6 @@
-import { ButtonLink } from "@/components/ui/ButtonLink";
-import type { Property } from "../types";
+import Image from 'next/image';
+import { ButtonLink } from '@/components/ui/ButtonLink';
+import type { Property } from '../types';
 
 interface PropertyCardProps {
   property: Property;
@@ -7,40 +8,55 @@ interface PropertyCardProps {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   return (
-    <article className="rounded-lg border border-brand-slate/50 bg-brand-slate p-6">
-      <span className="inline-block rounded-full border border-brand-silver/30 px-3 py-1 text-xs tracking-wider text-brand-silver">
-        {property.status}
-      </span>
+    <article className="overflow-hidden rounded-[2rem] border border-brand-gray/15 bg-brand-white p-4 shadow-[0_20px_50px_rgba(20,23,32,0.08)]">
+      <div className="relative overflow-hidden rounded-[1.6rem]">
+        <Image
+          src="/images/placeholders/project-wide.webp"
+          alt={`Placeholder visual de ${property.name}`}
+          width={1600}
+          height={1000}
+          className="aspect-[1.14/1] w-full object-cover"
+        />
+        <span className="absolute left-4 top-4 inline-flex rounded-full bg-brand-white/92 px-3 py-2 text-xs font-medium tracking-wider text-brand-carbon shadow-[0_14px_28px_rgba(20,23,32,0.14)]">
+          {property.status}
+        </span>
+      </div>
 
-      <h2 className="mt-4 font-heading text-2xl font-bold text-brand-white">
-        {property.name}
-      </h2>
-
-      <p className="mt-2 text-sm tracking-wide text-brand-silver">
-        {property.type} en {property.district}, {property.city}
-      </p>
-
-      {property.priceLabel ? (
-        <p className="mt-2 text-sm font-medium text-brand-white">
-          {property.priceLabel}
+      <div className="px-3 pb-3 pt-6">
+        <p className="text-sm tracking-wide text-brand-carbon/55">
+          {property.type} · {property.district}
         </p>
-      ) : null}
 
-      <p className="mt-4 text-sm leading-relaxed text-brand-gray">
-        {property.description}
-      </p>
+        <h2 className="mt-3 font-heading text-3xl font-bold text-brand-carbon">
+          {property.name}
+        </h2>
 
-      <ul className="mt-6 space-y-2">
-        {property.features.slice(0, 3).map((feature) => (
-          <li key={feature} className="text-sm text-brand-gray">
-            • {feature}
-          </li>
-        ))}
-      </ul>
+        {property.priceLabel ? (
+          <p className="mt-3 text-base font-medium text-brand-carbon">
+            {property.priceLabel}
+          </p>
+        ) : null}
 
-      <ButtonLink href={`/propiedades/${property.slug}`} className="mt-6 px-5 py-3">
-        Ver proyecto
-      </ButtonLink>
+        <p className="mt-4 text-sm leading-relaxed text-brand-carbon/72 md:text-base">
+          {property.description}
+        </p>
+
+        <ul className="mt-6 space-y-2">
+          {property.features.slice(0, 2).map((feature) => (
+            <li key={feature} className="text-sm text-brand-carbon/62">
+              • {feature}
+            </li>
+          ))}
+        </ul>
+
+        <ButtonLink
+          href={`/propiedades/${property.slug}`}
+          variant="solid-dark"
+          className="mt-6"
+        >
+          Ver proyecto
+        </ButtonLink>
+      </div>
     </article>
   );
 }

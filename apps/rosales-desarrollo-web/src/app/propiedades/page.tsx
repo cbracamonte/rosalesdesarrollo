@@ -9,9 +9,9 @@ import {
 } from "@/features/properties";
 
 export const metadata: Metadata = createMetadata({
-  title: "Proyectos Inmobiliarios",
+  title: "Proyectos y casas en venta | Pimentel, Chiclayo, Huanchaco",
   description:
-    "Explora los proyectos inmobiliarios de Rosales Desarrollo. Departamentos y residencias con diseño moderno, acabados premium y ubicaciones estratégicas.",
+    "Conoce nuestros proyectos: casas nuevas en Pimentel, Chiclayo y Huanchaco. Viviendas con buenos acabados, ubicaciones estratégicas y atención directa.",
   canonical: "/propiedades",
 });
 
@@ -22,7 +22,7 @@ export default function PropiedadesPage() {
     <>
       <WebPageJsonLd
         name="Proyectos Inmobiliarios"
-        description="Explora los proyectos inmobiliarios de Rosales Desarrollo. Departamentos y residencias con diseño moderno, acabados premium y ubicaciones estratégicas."
+        description="Casas y proyectos residenciales en venta en Pimentel, Chiclayo y Huanchaco. Vivienda nueva con ubicaciones estratégicas y atención directa."
         path="/propiedades"
       />
       <JsonLd data={createPropertiesCollectionSchema(properties)} />

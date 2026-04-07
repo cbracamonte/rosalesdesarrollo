@@ -6,7 +6,7 @@ export function FeaturedPropertiesSection() {
   const featuredProperties = getProperties().slice(0, 3);
 
   return (
-    <Section>
+    <Section tone="dark">
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="font-heading text-sm uppercase tracking-[0.24em] text-brand-silver">
@@ -16,7 +16,11 @@ export function FeaturedPropertiesSection() {
             Explorá desarrollos pensados para invertir y vivir mejor.
           </h2>
         </div>
-        <ButtonLink href="/propiedades" variant="text" className="self-start">
+        <ButtonLink
+          href="/propiedades"
+          variant="text"
+          className="self-start text-brand-silver hover:text-brand-white"
+        >
           Ver todos los proyectos
         </ButtonLink>
       </div>

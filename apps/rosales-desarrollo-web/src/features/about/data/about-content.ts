@@ -1,34 +1,34 @@
 export const aboutContent = {
   hero: {
-    title: "Nosotros",
+    title: 'Construimos hogares, no solo casas',
     description:
-      "Transformamos espacios, elevamos vidas. Conocé nuestra historia y compromiso con el desarrollo inmobiliario de calidad.",
+      'Somos una empresa de desarrollo inmobiliario con proyectos en Pimentel, Chiclayo y Huanchaco. Creamos viviendas en zonas estratégicas para familias que buscan calidad, respaldo y confianza.',
   },
   story: {
-    title: "Nuestra historia",
-    body: "Rosales Desarrollo nació con la visión de transformar el panorama inmobiliario en Perú. Desde nuestros inicios, nos hemos dedicado a crear proyectos residenciales que combinan arquitectura de vanguardia, materiales de primera calidad y un profundo respeto por el entorno urbano.",
+    title: 'Sabemos lo que significa comprar tu casa',
+    body: 'Comprar una vivienda es más que elegir metros cuadrados. Es elegir dónde va a crecer tu familia, qué tendrás cerca, y qué tan seguro te sentirás con esa decisión. Por eso cuidamos cada detalle: desde la ubicación hasta la atención que recibes.',
   },
   mission: {
-    title: "Misión",
-    body: "Construir desarrollos inmobiliarios que eleven la calidad de vida de nuestros clientes, ofreciendo espacios diseñados con excelencia, funcionalidad y compromiso con la sostenibilidad.",
+    title: 'Nuestro compromiso',
+    body: 'Entregar viviendas bien construidas, en ubicaciones con futuro, con información transparente y un proceso de compra que te dé tranquilidad de principio a fin.',
   },
   values: {
-    title: "Nuestros valores",
+    title: 'Lo que nos diferencia',
     items: [
       {
-        title: "Calidad",
+        title: 'Ubicaciones con criterio',
         description:
-          "Cada detalle cuenta. Utilizamos materiales premium y procesos constructivos que garantizan durabilidad y excelencia.",
+          'Elegimos zonas con acceso a servicios, conectividad y potencial de valorización para tu inversión.',
       },
       {
-        title: "Innovación",
+        title: 'Transparencia total',
         description:
-          "Incorporamos tendencias de diseño y tecnología constructiva para crear espacios modernos y eficientes.",
+          'Información clara sobre avance de obra, precios y condiciones. Sin sorpresas.',
       },
       {
-        title: "Compromiso",
+        title: 'Acompañamiento real',
         description:
-          "Acompañamos a nuestros clientes en cada etapa del proceso, brindando transparencia y confianza en cada proyecto.",
+          'Desde tu primera consulta hasta la entrega de llaves, estamos contigo en cada paso.',
       },
     ],
   },
