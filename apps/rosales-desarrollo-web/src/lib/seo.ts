@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import { SITE_CONFIG } from "@/config/site";
 
-const SITE_NAME = "Rosales Desarrollo";
-const SITE_URL = process.env.SITE_URL || "https://rosalesdesarrollo.com";
-const SITE_DESCRIPTION =
-  "Transformamos espacios, elevamos vidas. Construcción y desarrollo inmobiliario.";
+const SITE_NAME = SITE_CONFIG.name;
+const SITE_URL = SITE_CONFIG.url;
+const SITE_DESCRIPTION = SITE_CONFIG.description;
 
 interface CreateMetadataOptions extends Partial<Metadata> {
   canonical?: string;

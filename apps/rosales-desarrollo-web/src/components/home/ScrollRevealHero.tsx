@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, useCallback } from "react";
 import Image from "next/image";
+import { BRAND_ASSETS } from "@/config/brand-assets";
 
 export default function ScrollRevealHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -11,7 +12,7 @@ export default function ScrollRevealHero() {
   // Preload the background image so text doesn't look pixelated
   useEffect(() => {
     const img = new window.Image();
-    img.src = "/images/hero-bg.webp";
+    img.src = BRAND_ASSETS.heroBackground;
     img.onload = () => setImageLoaded(true);
     // If already cached, defer setState to avoid synchronous update in effect
     if (img.complete) queueMicrotask(() => setImageLoaded(true));
@@ -64,7 +65,7 @@ export default function ScrollRevealHero() {
           style={{ opacity: imageOpacity }}
         >
           <Image
-            src="/images/hero-bg.webp"
+            src={BRAND_ASSETS.heroBackground}
             alt=""
             fill
             className="object-cover object-[center_25%]"
@@ -83,9 +84,9 @@ export default function ScrollRevealHero() {
             willChange: "opacity, transform",
           }}
         >
-          {/* Mobile: icon + name only (no tagline) */}
+          {/* Mobile: full logo optimized for small screens */}
           <Image
-            src="icons/isotipo-mobile.svg"
+            src={BRAND_ASSETS.logoMobile}
             alt="Rosales Desarrollo — Desarrollo inmobiliario en Perú"
             width={350}
             height={240}
@@ -93,7 +94,7 @@ export default function ScrollRevealHero() {
           />
           {/* Desktop: full logo with tagline */}
           <Image
-            src="icons/isotipo.svg"
+            src={BRAND_ASSETS.logo}
             alt="Rosales Desarrollo — Desarrollo inmobiliario en Perú"
             width={550}
             height={410}
@@ -111,11 +112,11 @@ export default function ScrollRevealHero() {
             }}
           >
             <h1
-              className="select-none whitespace-nowrap text-center font-heading font-bold uppercase leading-[0.88]"
+              className="select-none whitespace-nowrap text-center font-heading font-bold uppercase leading-[0.99]"
               style={{
                 fontSize: `${fontSize}vw`,
                 letterSpacing: "-0.02em",
-                backgroundImage: "url(/images/hero-bg.webp)",
+                backgroundImage: `url(${BRAND_ASSETS.heroBackground})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center 25%",
                 backgroundRepeat: "no-repeat",
@@ -127,11 +128,11 @@ export default function ScrollRevealHero() {
                 filter: "grayscale(0.6) contrast(1.1) brightness(0.8)",
               }}
             >
-              LIVE
+              VIVE
               <br />
-              YOUR
+              TU
               <br />
-              DREAM
+              SUEÑO
             </h1>
           </div>
         )}

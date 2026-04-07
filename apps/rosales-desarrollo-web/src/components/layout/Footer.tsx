@@ -1,10 +1,6 @@
 import Link from "next/link";
-
-const footerLinks = [
-  { href: "/propiedades", label: "Propiedades" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/contacto", label: "Contacto" },
-];
+import { footerNavigation } from "@/config/navigation";
+import { SITE_CONFIG } from "@/config/site";
 
 export function Footer() {
   return (
@@ -15,11 +11,11 @@ export function Footer() {
         </p>
         <nav aria-label="Navegación del pie de página">
           <ul className="flex items-center gap-6">
-            {footerLinks.map(({ href, label }) => (
+            {footerNavigation.map(({ href, label }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className="text-sm text-brand-gray transition-colors hover:text-brand-white"
+                  className="text-sm text-brand-gray transition-colors hover:text-brand-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-silver focus-visible:ring-offset-2 focus-visible:ring-offset-brand-slate"
                 >
                   {label}
                 </Link>
@@ -28,7 +24,8 @@ export function Footer() {
           </ul>
         </nav>
         <p className="text-xs text-brand-gray">
-          &copy; {new Date().getFullYear()} Rosales Desarrollo. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. Todos los
+          derechos reservados.
         </p>
       </div>
     </footer>

@@ -1,25 +1,17 @@
-export interface Property {
-  slug: string;
-  name: string;
-  type: string;
-  description: string;
-  district: string;
-  city: string;
-  country: string;
-  features: string[];
-  status: string;
-}
+import type { Property } from "../types";
 
 export const properties: Property[] = [
   {
     slug: "departamentos-lima-miraflores",
     name: "Residencial Miraflores",
     type: "Departamentos",
+    category: "departamento",
     description:
       "Exclusivos departamentos en el corazón de Miraflores con acabados premium, áreas comunes de lujo y ubicación privilegiada cerca de parques, comercios y vías principales de Lima.",
     district: "Miraflores",
     city: "Lima",
     country: "PE",
+    priceLabel: "Desde US$ 185,000",
     features: [
       "Acabados de primera calidad",
       "Áreas comunes con piscina y gimnasio",
@@ -34,11 +26,13 @@ export const properties: Property[] = [
     slug: "departamentos-lima-san-isidro",
     name: "Torres San Isidro",
     type: "Departamentos",
+    category: "departamento",
     description:
       "Departamentos de lujo en San Isidro, el distrito financiero de Lima. Proyecto residencial con vista a la ciudad, acabados importados y acceso directo a zonas empresariales y culturales.",
     district: "San Isidro",
     city: "Lima",
     country: "PE",
+    priceLabel: "Desde US$ 240,000",
     features: [
       "Vista panorámica a la ciudad",
       "Acabados importados de alta gama",
@@ -53,11 +47,13 @@ export const properties: Property[] = [
     slug: "departamentos-lima-barranco",
     name: "Loft Barranco",
     type: "Departamentos",
+    category: "loft",
     description:
       "Modernos departamentos estilo loft en Barranco, el distrito más bohemio de Lima. Espacios amplios con doble altura, terraza privada y a pasos del malecón y la vida cultural de Barranco.",
     district: "Barranco",
     city: "Lima",
     country: "PE",
+    priceLabel: "Próximo lanzamiento",
     features: [
       "Diseño estilo loft con doble altura",
       "Terraza privada con vista al mar",
@@ -69,11 +65,3 @@ export const properties: Property[] = [
     status: "Próximamente",
   },
 ];
-
-export function getPropertyBySlug(slug: string): Property | undefined {
-  return properties.find((p) => p.slug === slug);
-}
-
-export function getAllPropertySlugs(): string[] {
-  return properties.map((p) => p.slug);
-}

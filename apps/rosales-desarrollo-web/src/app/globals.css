@@ -27,3 +27,22 @@
   --radius-md: 6px;
   --radius-lg: 8px;
 }
+
+@layer base {
+  * {
+    @apply selection:bg-brand-silver selection:text-brand-night;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+  }
+
+  a,
+  button {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-silver focus-visible:ring-offset-2 focus-visible:ring-offset-brand-night;
+  }
+}

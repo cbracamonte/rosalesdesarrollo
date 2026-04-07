@@ -21,7 +21,12 @@ const montserrat = Montserrat({
   weight: ["300", "400", "500", "700"],
 });
 
-export const metadata: Metadata = createMetadata();
+export const metadata: Metadata = createMetadata({
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+});
 
 export default function RootLayout({
   children,
@@ -31,6 +36,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} ${montserrat.variable}`}>
       <body className="bg-brand-night font-body text-brand-white antialiased">
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-brand-white focus:px-4 focus:py-2 focus:text-brand-night"
+        >
+          Saltar al contenido principal
+        </a>
         <JsonLd data={generateOrganizationSchema()} />
         <Header />
         {children}

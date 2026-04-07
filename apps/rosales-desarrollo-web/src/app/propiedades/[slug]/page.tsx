@@ -1,13 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { createMetadata } from "@/lib/seo";
+import { ButtonLink } from "@/components/ui/ButtonLink";
+import { PageIntro } from "@/components/ui/PageIntro";
+import { Section } from "@/components/layout/Section";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { generatePropertyListingSchema } from "@/lib/structured-data";
+import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 import {
+  createPropertyBreadcrumbSchema,
+  createPropertyListingSchema,
+  createPropertyMetadata,
   getPropertyBySlug,
   getAllPropertySlugs,
-} from "@/lib/properties";
+} from "@/features/properties";
 
 export function generateStaticParams() {
   return getAllPropertySlugs().map((slug) => ({ slug }));
@@ -20,11 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const property = getPropertyBySlug(slug);
   if (!property) return {};
 
-  return createMetadata({
-    title: `${property.type} en ${property.district} | ${property.city}`,
-    description: `${property.type} en ${property.district}, ${property.city}. ${property.description.slice(0, 120)}`,
-    canonical: `/propiedades/${slug}`,
-  });
+  return createPropertyMetadata(property);
 }
 
 export default async function PropertyPage({ params }: Props) {
@@ -34,31 +34,46 @@ export default async function PropertyPage({ params }: Props) {
   if (!property) notFound();
 
   return (
-    <main className="mx-auto min-h-screen max-w-7xl px-6 pt-28 pb-16">
-      <JsonLd
-        data={generatePropertyListingSchema({
-          name: property.name,
-          description: property.description,
-          slug: property.slug,
-          district: property.district,
-          city: property.city,
-          country: property.country,
-        })}
+    <main id="main-content" className="min-h-screen pt-28 pb-16">
+      <WebPageJsonLd
+        name={`${property.name} en ${property.district}`}
+        description={property.description}
+        path={`/propiedades/${property.slug}`}
       />
+      <JsonLd data={createPropertyListingSchema(property)} />
+      <JsonLd data={createPropertyBreadcrumbSchema(property)} />
 
-      <section>
+      <Section className="py-0">
+        <nav aria-label="Breadcrumb">
+          <ol className="mb-6 flex flex-wrap items-center gap-2 text-sm text-brand-gray">
+            <li>
+              <ButtonLink href="/" variant="text" className="no-underline">
+                Inicio
+              </ButtonLink>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li>
+              <ButtonLink href="/propiedades" variant="text" className="no-underline">
+                Propiedades
+              </ButtonLink>
+            </li>
+            <li aria-hidden="true">/</li>
+            <li className="text-brand-white">{property.name}</li>
+          </ol>
+        </nav>
+
         <span className="inline-block rounded-full border border-brand-silver/30 px-3 py-1 text-xs tracking-wider text-brand-silver">
           {property.status}
         </span>
-        <h1 className="mt-4 font-heading text-4xl font-bold text-brand-white">
-          {property.type} en {property.district} — {property.name}
-        </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-brand-gray">
-          {property.description}
-        </p>
-      </section>
+        <PageIntro
+          title={`${property.type} en ${property.district} — ${property.name}`}
+          description={property.description}
+          eyebrow={property.priceLabel}
+          className="mt-4"
+        />
+      </Section>
 
-      <section className="mt-12">
+      <Section className="py-12">
         <h2 className="font-heading text-2xl font-bold text-brand-white">
           Características del proyecto
         </h2>
@@ -74,9 +89,9 @@ export default async function PropertyPage({ params }: Props) {
             </div>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section className="mt-12">
+      <Section className="py-0">
         <h2 className="font-heading text-2xl font-bold text-brand-white">
           Ubicación en {property.district}, {property.city}
         </h2>
@@ -86,9 +101,10 @@ export default async function PropertyPage({ params }: Props) {
           ofrece acceso a servicios, transporte, áreas verdes y la mejor oferta
           gastronómica y cultural de la ciudad.
         </p>
-      </section>
+      </Section>
 
-      <section className="mt-12 rounded-lg border border-brand-slate/50 bg-brand-slate p-8">
+      <Section className="py-12">
+        <div className="rounded-lg border border-brand-slate/50 bg-brand-slate p-8">
         <h2 className="font-heading text-xl font-bold text-brand-white">
           ¿Interesado en {property.type.toLowerCase()} en {property.district}?
         </h2>
@@ -98,20 +114,15 @@ export default async function PropertyPage({ params }: Props) {
           listo para atenderte.
         </p>
         <div className="mt-6 flex flex-col gap-4 sm:flex-row">
-          <Link
-            href="/contacto"
-            className="inline-block rounded-md border border-brand-silver/30 px-6 py-3 text-center font-heading text-sm tracking-wider text-brand-silver transition-colors hover:border-brand-white hover:text-brand-white"
-          >
+          <ButtonLink href="/contacto">
             Solicita información de este proyecto
-          </Link>
-          <Link
-            href="/propiedades"
-            className="inline-block rounded-md border border-brand-silver/30 px-6 py-3 text-center font-heading text-sm tracking-wider text-brand-silver transition-colors hover:border-brand-white hover:text-brand-white"
-          >
+          </ButtonLink>
+          <ButtonLink href="/propiedades">
             Ver todos los proyectos
-          </Link>
+          </ButtonLink>
         </div>
-      </section>
+        </div>
+      </Section>
     </main>
   );
 }
