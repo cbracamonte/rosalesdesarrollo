@@ -38,7 +38,11 @@ export function PropertyCard({ property }: PropertyCardProps) {
         ))}
       </ul>
 
-      <ButtonLink href={`/propiedades/${property.slug}`} className="mt-6 px-5 py-3">
+      <ButtonLink
+        href={`/propiedades/${property.slug}`}
+        variant="solid-light"
+        className="mt-6 px-5 py-3"
+      >
         Ver proyecto
       </ButtonLink>
     </article>

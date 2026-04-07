@@ -17,30 +17,30 @@ export function AboutPageContent() {
         path="/nosotros"
       />
 
-      <Section className="py-0">
-        <PageIntro title={hero.title} description={hero.description} />
+      <Section tone="light" className="py-0">
+        <PageIntro title={hero.title} description={hero.description} tone="light" />
       </Section>
 
-      <Section className="py-12">
-        <h2 className="font-heading text-2xl font-bold text-brand-white">
+      <Section className="py-12" tone="light">
+        <h2 className="font-heading text-2xl font-bold text-brand-carbon">
           {story.title}
         </h2>
-        <p className="mt-4 max-w-3xl leading-relaxed text-brand-gray">
+        <p className="mt-4 max-w-3xl leading-relaxed text-brand-carbon/80">
           {story.body}
         </p>
       </Section>
 
-      <Section className="py-0">
-        <h2 className="font-heading text-2xl font-bold text-brand-white">
+      <Section className="py-0" tone="light">
+        <h2 className="font-heading text-2xl font-bold text-brand-carbon">
           {mission.title}
         </h2>
-        <p className="mt-4 max-w-3xl leading-relaxed text-brand-gray">
+        <p className="mt-4 max-w-3xl leading-relaxed text-brand-carbon/80">
           {mission.body}
         </p>
       </Section>
 
-      <Section className="py-12">
-        <h2 className="font-heading text-2xl font-bold text-brand-white">
+      <Section className="py-12" tone="light">
+        <h2 className="font-heading text-2xl font-bold text-brand-carbon">
           {values.title}
         </h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
@@ -49,18 +49,19 @@ export function AboutPageContent() {
               key={value.title}
               title={value.title}
               description={value.description}
+              tone="light"
             />
           ))}
         </div>
       </Section>
 
-      <Section className="py-12">
+      <Section className="py-12" tone="dark">
         <CtaBanner
           title="Construimos proyectos con visión urbana y obsesión por el detalle."
           description="Explorá nuestros desarrollos o hablá con el equipo para conocer oportunidades, disponibilidad y próximos lanzamientos."
           actions={
             <>
-              <ButtonLink href="/propiedades">
+              <ButtonLink href="/propiedades" variant="solid-light">
                 Explora nuestros proyectos inmobiliarios
               </ButtonLink>
               <ButtonLink href="/contacto">

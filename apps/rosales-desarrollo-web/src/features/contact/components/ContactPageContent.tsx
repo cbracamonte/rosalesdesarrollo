@@ -16,11 +16,11 @@ export function ContactPageContent() {
         path="/contacto"
       />
 
-      <Section className="py-0">
-        <PageIntro title={hero.title} description={hero.description} />
+      <Section tone="light" className="py-0">
+        <PageIntro title={hero.title} description={hero.description} tone="light" />
       </Section>
 
-      <Section className="py-12">
+      <Section className="py-12" tone="light">
         <div className="grid gap-8 md:grid-cols-2">
           <InfoCard
             title={info.title}
@@ -31,12 +31,13 @@ export function ContactPageContent() {
                     <dt className="text-sm font-medium text-brand-silver">
                       {item.label}
                     </dt>
-                    <dd className="mt-1 text-brand-gray">{item.value}</dd>
+                    <dd className="mt-1 text-brand-carbon/75">{item.value}</dd>
                   </div>
                 ))}
               </dl>
             }
             className="p-8"
+            tone="light"
           />
 
           <InfoCard
@@ -44,12 +45,17 @@ export function ContactPageContent() {
             description={
               <>
                 <p>{interest.description}</p>
-                <ButtonLink href="/propiedades" variant="text" className="mt-6">
+                <ButtonLink
+                  href="/propiedades"
+                  variant="text"
+                  className="mt-6 text-brand-carbon hover:text-brand-night"
+                >
                   Ver nuestros proyectos disponibles
                 </ButtonLink>
               </>
             }
             className="p-8"
+            tone="light"
           />
         </div>
       </Section>

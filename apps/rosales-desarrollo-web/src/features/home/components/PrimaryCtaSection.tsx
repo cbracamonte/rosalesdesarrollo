@@ -7,13 +7,15 @@ export function PrimaryCtaSection() {
   const { title, description } = homeContent.cta;
 
   return (
-    <Section>
+    <Section tone="dark">
       <CtaBanner
         title={title}
         description={description}
         actions={
           <>
-            <ButtonLink href="/propiedades">Ver proyectos</ButtonLink>
+            <ButtonLink href="/propiedades" variant="solid-light">
+              Ver proyectos
+            </ButtonLink>
             <ButtonLink href="/contacto">Hablar con un asesor</ButtonLink>
           </>
         }
