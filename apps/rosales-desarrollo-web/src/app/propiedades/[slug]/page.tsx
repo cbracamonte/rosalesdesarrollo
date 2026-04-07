@@ -12,6 +12,7 @@ import {
   getPropertyBySlug,
   getAllPropertySlugs,
 } from "@/features/properties";
+import { ValleDoradoPage } from "@/features/properties/components/ValleDoradoPage";
 
 export function generateStaticParams() {
   return getAllPropertySlugs().map((slug) => ({ slug }));
@@ -32,6 +33,10 @@ export default async function PropertyPage({ params }: Props) {
   const property = getPropertyBySlug(slug);
 
   if (!property) notFound();
+
+  if (slug === "casa-pimentel-valle-dorado") {
+    return <ValleDoradoPage property={property} />;
+  }
 
   return (
     <main id="main-content" className="min-h-screen pt-28 pb-16">
@@ -96,10 +101,7 @@ export default async function PropertyPage({ params }: Props) {
           Ubicación en {property.district}, {property.city}
         </h2>
         <p className="mt-4 max-w-3xl leading-relaxed text-brand-gray">
-          {property.name} se encuentra en {property.district}, uno de los
-          distritos más atractivos de {property.city}. Su ubicación estratégica
-          ofrece acceso a servicios, transporte, áreas verdes y la mejor oferta
-          gastronómica y cultural de la ciudad.
+          {property.name} se encuentra en {property.district}, {property.city}. Una zona con buenos accesos, servicios cercanos y un entorno residencial en crecimiento.
         </p>
       </Section>
 
@@ -109,13 +111,11 @@ export default async function PropertyPage({ params }: Props) {
           ¿Interesado en {property.type.toLowerCase()} en {property.district}?
         </h2>
         <p className="mt-2 leading-relaxed text-brand-gray">
-          Solicita información sobre disponibilidad, precios y opciones de
-          financiamiento para {property.name}. Nuestro equipo de asesores está
-          listo para atenderte.
+          Consulta precios, disponibilidad o agenda una visita a {property.name}. Te respondemos rápido.
         </p>
         <div className="mt-6 flex flex-col gap-4 sm:flex-row">
           <ButtonLink href="/contacto">
-            Solicita información de este proyecto
+            Consultar este proyecto
           </ButtonLink>
           <ButtonLink href="/propiedades">
             Ver todos los proyectos

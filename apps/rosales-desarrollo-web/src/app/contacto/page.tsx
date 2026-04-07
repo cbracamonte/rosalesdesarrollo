@@ -3,9 +3,9 @@ import { createMetadata } from "@/lib/seo";
 import { ContactPageContent } from "@/features/contact";
 
 export const metadata: Metadata = createMetadata({
-  title: "Contacto",
+  title: "Contacto | Agenda tu visita",
   description:
-    "Contáctanos para conocer nuestros proyectos inmobiliarios en Perú. Solicita información sobre departamentos, residencias y desarrollos de Rosales Desarrollo.",
+    "Escríbenos para conocer precios, disponibilidad o agendar una visita a nuestros proyectos en Pimentel, Chiclayo y Huanchaco. Respondemos rápido.",
   canonical: "/contacto",
 });
 

@@ -1,33 +1,37 @@
-import type { Metadata } from "next";
-import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
-import { createMetadata } from "@/lib/seo";
+import type { Metadata } from 'next';
+import { WebPageJsonLd } from '@/components/seo/WebPageJsonLd';
+import { createMetadata } from '@/lib/seo';
 import {
-  AboutPreviewSection,
-  FeaturedPropertiesSection,
+  CurrentProjectsSection,
+  ExploreMapSection,
   HeroSection,
+  IntegratedProcessSection,
+  InvestmentBenefitsSection,
   PrimaryCtaSection,
-  ValuePropositionSection,
-} from "@/features/home";
+  StrategicOverviewSection,
+} from '@/features/home';
 
 export const metadata: Metadata = createMetadata({
-  title: "Desarrollo Inmobiliario en Perú",
+  title: 'Casas en venta en Pimentel y Chiclayo | Proyectos residenciales',
   description:
-    "Rosales Desarrollo — Construcción y desarrollo inmobiliario de calidad en Perú. Proyectos residenciales con diseño moderno y acabados premium.",
-  canonical: "/",
+    'Encuentra tu próximo hogar con Rosales Desarrollo. Casas nuevas en Pimentel, Chiclayo y Huanchaco. Conoce nuestros proyectos y agenda una visita.',
+  canonical: '/',
 });
 
 export default function Home() {
   return (
     <main id="main-content">
       <WebPageJsonLd
-        name="Desarrollo Inmobiliario en Perú"
-        description="Rosales Desarrollo — Construcción y desarrollo inmobiliario de calidad en Perú. Proyectos residenciales con diseño moderno y acabados premium."
+        name="Rosales Desarrollo"
+        description="Casas nuevas en venta en Pimentel, Chiclayo y Huanchaco. Conoce nuestros proyectos y agenda una visita."
         path="/"
       />
       <HeroSection />
-      <ValuePropositionSection />
-      <FeaturedPropertiesSection />
-      <AboutPreviewSection />
+      <StrategicOverviewSection />
+      <IntegratedProcessSection />
+      <InvestmentBenefitsSection />
+      <CurrentProjectsSection />
+      <ExploreMapSection />
       <PrimaryCtaSection />
     </main>
   );

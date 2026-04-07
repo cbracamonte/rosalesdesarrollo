@@ -18,15 +18,15 @@ export function ButtonLink({
     <Link
       {...props}
       className={cn(
-        "font-heading text-sm tracking-wider transition-colors",
+        "inline-flex items-center justify-center font-heading text-sm leading-none tracking-wider transition-colors",
         variant === "solid-light" &&
-          "inline-block rounded-md bg-brand-white px-6 py-3 text-center text-brand-night hover:bg-brand-silver",
+          "min-h-12 rounded-md bg-brand-white px-6 py-3 text-center text-brand-night hover:bg-brand-silver",
         variant === "solid-dark" &&
-          "inline-block rounded-md bg-brand-night px-6 py-3 text-center text-brand-white hover:bg-brand-carbon",
+          "min-h-12 rounded-md bg-brand-night px-6 py-3 text-center text-brand-white hover:bg-brand-carbon",
         variant === "outline" &&
-          "inline-block rounded-md border border-brand-silver/30 px-6 py-3 text-center text-brand-silver hover:border-brand-white hover:text-brand-white",
+          "min-h-12 rounded-md border border-brand-silver/30 px-6 py-3 text-center text-brand-silver hover:border-brand-white hover:text-brand-white",
         variant === "text" &&
-          "inline-block underline underline-offset-4",
+          "min-h-12 px-1 underline underline-offset-4",
         className,
       )}
     >

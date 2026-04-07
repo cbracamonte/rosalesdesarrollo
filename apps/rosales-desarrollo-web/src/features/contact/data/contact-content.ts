@@ -1,21 +1,27 @@
-import { SITE_CONFIG } from "@/config/site";
+import { SITE_CONFIG } from '@/config/site';
 
 export const contactContent = {
   hero: {
-    title: "Contacto",
+    title: 'Conversemos sobre tu próximo hogar',
     description:
-      "¿Tienes preguntas sobre nuestros desarrollos inmobiliarios? Estamos aquí para ayudarte. Escríbenos y nuestro equipo te responderá a la brevedad.",
+      'Escríbenos para conocer nuestros proyectos, consultar precios o agendar una visita. Respondemos rápido.',
   },
   info: {
-    title: "Información de contacto",
+    title: 'Contáctanos',
     items: [
-      { label: "Email", value: SITE_CONFIG.contactEmail },
-      { label: "Ubicación", value: SITE_CONFIG.location },
+      { label: 'Email', value: SITE_CONFIG.contactEmail },
+      { label: 'Oficina', value: SITE_CONFIG.operationalLocation },
+      { label: 'Horario', value: 'Lunes a sábado, respuesta en menos de 24 horas' },
+      { label: 'Zona de proyectos', value: 'Pimentel, Chiclayo y Huanchaco' },
     ],
   },
   interest: {
-    title: "¿Qué te interesa?",
-    description:
-      "Ya sea que busques información sobre un proyecto específico, disponibilidad de unidades, opciones de financiamiento o desees agendar una visita, nuestro equipo está listo para atenderte.",
+    title: '¿En qué te podemos ayudar?',
+    bullets: [
+      'Precios y formas de pago disponibles',
+      'Estado actual de obra y fecha de entrega',
+      'Coordinar una visita al proyecto',
+      'Resolver dudas sobre ubicación y características',
+    ],
   },
 } as const;
