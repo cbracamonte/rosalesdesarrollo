@@ -3,10 +3,11 @@ export interface NavigationLink {
   label: string;
 }
 
-export const mainNavigation: NavigationLink[] = [
-  { href: "/propiedades", label: "Propiedades" },
-  { href: "/nosotros", label: "Nosotros" },
-  { href: "/contacto", label: "Contacto" },
+export const landingNavigation: NavigationLink[] = [
+  { href: "#proyecto-chiclayo", label: "Proyecto" },
+  { href: "#beneficios", label: "Beneficios" },
+  { href: "#proceso", label: "Proceso" },
+  { href: "#contacto", label: "Contacto" },
 ];
 
-export const footerNavigation = mainNavigation;
+export const footerNavigation = landingNavigation;

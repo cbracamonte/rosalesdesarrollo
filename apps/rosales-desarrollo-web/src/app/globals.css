@@ -4,34 +4,47 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  /* Brand Colors - Rosales Desarrollo */
-  --color-brand-night: #1E2129;
-  --color-brand-night-deep: #141720;
-  --color-brand-slate: #2A2D37;
-  --color-brand-carbon: #3B3E44;
-  --color-brand-gray: #9DA2A8;
-  --color-brand-silver: #C0C5CB;
-  --color-brand-white: #FFFFFF;
-  --color-brand-bg: #F8F9FA;
-  --color-brand-sand: #E6DDD2;
+  --color-surface: #faf9fb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f3f6;
+  --color-surface-container: #efedf0;
+  --color-surface-container-high: #e9e8ea;
+  --color-background: #faf9fb;
+  --color-on-background: #1b1c1e;
+  --color-on-surface: #1b1c1e;
+  --color-on-surface-variant: #43474d;
+  --color-outline: #74777e;
+  --color-outline-variant: #c4c6ce;
+  --color-primary: #000f22;
+  --color-primary-container: #0a2540;
+  --color-secondary: #545f72;
+  --color-accent: #c0c5cb;
+  --color-accent-dark: #7f8b99;
+  --color-accent-soft: #e3e7ec;
 
-  /* Semantic Colors */
-  --color-background: #1E2129;
-  --color-foreground: #FFFFFF;
+  --color-brand-night: #000f22;
+  --color-brand-night-deep: #000f22;
+  --color-brand-slate: #0a2540;
+  --color-brand-carbon: #1b1c1e;
+  --color-brand-gray: #74777e;
+  --color-brand-silver: #c4c6ce;
+  --color-brand-white: #ffffff;
+  --color-brand-bg: #faf9fb;
+  --color-brand-sand: #efedf0;
 
-  /* Font Family */
-  --font-heading: "Poppins", sans-serif;
-  --font-body: "Montserrat", sans-serif;
+  --font-sans: var(--font-inter), sans-serif;
+  --font-heading: var(--font-inter), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 6px;
+  --radius-sm: 2px;
+  --radius-md: 4px;
   --radius-lg: 8px;
 }
 
 @layer base {
   * {
-    @apply selection:bg-brand-silver selection:text-brand-night;
+    @apply selection:bg-accent selection:text-primary;
+    box-sizing: border-box;
   }
 
   html {
@@ -40,10 +53,11 @@
 
   body {
     min-height: 100vh;
+    background: var(--color-background);
   }
 
   a,
   button {
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-silver focus-visible:ring-offset-2 focus-visible:ring-offset-brand-night;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
   }
 }
