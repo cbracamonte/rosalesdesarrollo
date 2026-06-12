@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
   CircleCheck,
   Clock3,
   Mail,
@@ -27,17 +26,13 @@ import { ContactLeadForm } from "./ContactLeadForm";
 
 const primaryButton =
   "inline-flex min-h-12 items-center justify-center gap-2 rounded bg-accent px-6 text-sm font-bold text-primary transition hover:bg-accent-dark focus-visible:ring-accent";
-const secondaryButton =
-  "inline-flex min-h-12 items-center justify-center gap-2 rounded border border-white/70 px-6 text-sm font-semibold text-white transition hover:bg-white hover:text-primary";
 
 export function HomePageContent() {
   const featuredProperty = getProperties()[0];
   const whatsappMessage = encodeURIComponent(
     "Hola, quiero información sobre la casa en Chiclayo de Rosales Desarrollo.",
   );
-  const whatsappHref = SITE_CONFIG.whatsappNumber
-    ? `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${whatsappMessage}`
-    : "/#contacto";
+  const whatsappHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${whatsappMessage}`;
 
   return (
     <main id="main-content" className="bg-background text-on-background">
@@ -49,7 +44,7 @@ export function HomePageContent() {
 
       <section className="relative isolate flex min-h-155 items-center overflow-hidden bg-primary pt-20 text-white md:min-h-170">
         <Image
-          src="/images/hero-bg.webp"
+          src="/images/valle-dorado-pimentel/intro-home.png"
           alt=""
           fill
           priority
@@ -66,8 +61,8 @@ export function HomePageContent() {
               Tu casa propia empieza aquí
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/82 md:text-lg">
-              Compra directo con Rosales Desarrollo, sin comisión. Agenda tu visita y evalúa
-              si esta casa puede ser para tu familia.
+              Compra directo con Rosales Desarrollo, sin comisión. Agenda tu
+              visita y evalúa si esta casa puede ser para tu familia.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               {/* <Link href="#proyecto-chiclayo" className={primaryButton}>
@@ -80,10 +75,19 @@ export function HomePageContent() {
             </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
               {trustSignals.map(({ title, description, icon: Icon }) => (
-                <div key={title} className="rounded-lg border border-white/12 bg-white/8 p-4 backdrop-blur">
-                  <Icon aria-hidden="true" className="size-5 text-accent" strokeWidth={1.8} />
+                <div
+                  key={title}
+                  className="rounded-lg border border-white/12 bg-white/8 p-4 backdrop-blur"
+                >
+                  <Icon
+                    aria-hidden="true"
+                    className="size-5 text-accent"
+                    strokeWidth={1.8}
+                  />
                   <p className="mt-3 text-sm font-bold">{title}</p>
-                  <p className="mt-1 text-xs leading-relaxed text-white/68">{description}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-white/68">
+                    {description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -96,34 +100,53 @@ export function HomePageContent() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center">
             <div className="relative">
               <Image
-                src="/images/placeholders/project-lifestyle.webp"
+                src="/images/valle-dorado-pimentel/intro-home.png"
                 alt="Planos y casco de seguridad de un proyecto inmobiliario"
                 width={1200}
                 height={850}
                 className="aspect-[1.35/1] w-full rounded-lg object-cover shadow-[0_4px_20px_rgba(10,37,64,0.08)]"
               />
               <div className="absolute -bottom-5 right-5 max-w-56 rounded bg-primary px-6 py-5 text-white shadow-xl">
-                <span className="block text-lg font-bold text-accent">Agenda tu visita</span>
-                <span className="mt-1 block text-xs leading-relaxed">Conoce la casa antes de decidir.</span>
+                <span className="block text-lg font-bold text-accent">
+                  Agenda tu visita
+                </span>
+                <span className="mt-1 block text-xs leading-relaxed">
+                  Conoce la casa antes de decidir.
+                </span>
               </div>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Sin intermediarios</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
+                Sin intermediarios
+              </p>
               <h2 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-4xl">
                 Compra directo, pregunta claro y decide tranquilo
               </h2>
               <p className="mt-5 text-base leading-relaxed text-on-surface-variant">
-                Sabemos que comprar una casa da miedo: papeles, pagos, créditos y dudas. Por eso
-                hablamos directo, mostramos la vivienda y te explicamos el proceso sin letra chica.
+                Sabemos que comprar una casa da miedo: papeles, pagos, créditos
+                y dudas. Por eso hablamos directo, mostramos la vivienda y te
+                explicamos el proceso sin letra chica.
               </p>
               <p className="mt-4 text-base leading-relaxed text-on-surface-variant">
-                Te orientamos en el proceso del bono Techo Propio o Mi Vivienda y te ayudamos a evaluar si calificas para un crédito hipotecario.
-
+                Te orientamos en el proceso del bono Techo Propio o Mi Vivienda
+                y te ayudamos a evaluar si calificas para un crédito
+                hipotecario.
               </p>
               <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-                {["Sin comisión", "Trato directo", "Asesoría", "Agenda por WhatsApp"].map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-on-surface-variant">
-                    <CircleCheck aria-hidden="true" className="size-4 text-accent-dark" />
+                {[
+                  "Sin comisión",
+                  "Trato directo",
+                  "Asesoría",
+                  "Agenda por WhatsApp",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 text-sm text-on-surface-variant"
+                  >
+                    <CircleCheck
+                      aria-hidden="true"
+                      className="size-4 text-accent-dark"
+                    />
                     {item}
                   </li>
                 ))}
@@ -133,10 +156,15 @@ export function HomePageContent() {
         </Container>
       </section>
 
-      <section id="beneficios" className="scroll-mt-24 bg-surface-container-low py-16 md:py-20">
+      <section
+        id="beneficios"
+        className="scroll-mt-24 bg-surface-container-low py-16 md:py-20"
+      >
         <Container>
           <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold text-primary">Lo que ganas comprando directo</h2>
+            <h2 className="text-3xl font-bold text-primary">
+              Lo que ganas comprando directo
+            </h2>
             <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">
               Menos vueltas. Más claridad. Una casa que puedes visitar.
             </p>
@@ -148,10 +176,18 @@ export function HomePageContent() {
                 className="rounded-lg border border-outline-variant/45 bg-white p-7 shadow-[0_4px_20px_rgba(10,37,64,0.05)] transition hover:-translate-y-1 hover:shadow-[0_10px_24px_rgba(10,37,64,0.11)]"
               >
                 <div className="flex size-10 items-center justify-center rounded bg-surface-container text-primary">
-                  <Icon aria-hidden="true" className="size-5" strokeWidth={1.8} />
+                  <Icon
+                    aria-hidden="true"
+                    className="size-5"
+                    strokeWidth={1.8}
+                  />
                 </div>
-                <h3 className="mt-5 text-lg font-semibold text-primary">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">{description}</p>
+                <h3 className="mt-5 text-lg font-semibold text-primary">
+                  {title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-on-surface-variant">
+                  {description}
+                </p>
               </article>
             ))}
           </div>
@@ -160,14 +196,22 @@ export function HomePageContent() {
 
       <section className="bg-primary py-16 text-white md:py-20">
         <Container>
-          <h2 className="text-center text-3xl font-bold">Para familias que quieren avanzar</h2>
+          <h2 className="text-center text-3xl font-bold">
+            Para familias que quieren avanzar
+          </h2>
           <div className="mt-12 grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map(({ title, description, icon: Icon }) => (
               <article key={title} className="grid grid-cols-[auto_1fr] gap-4">
-                <Icon aria-hidden="true" className="mt-1 size-5 text-accent" strokeWidth={1.8} />
+                <Icon
+                  aria-hidden="true"
+                  className="mt-1 size-5 text-accent"
+                  strokeWidth={1.8}
+                />
                 <div>
                   <h3 className="font-semibold">{title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/68">{description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-white/68">
+                    {description}
+                  </p>
                 </div>
               </article>
             ))}
@@ -189,7 +233,10 @@ export function HomePageContent() {
                 />
               </div>
               {projectImages.slice(1).map((image, index) => (
-                <div key={image} className="relative min-h-56 overflow-hidden rounded-lg">
+                <div
+                  key={image}
+                  className="relative min-h-56 overflow-hidden rounded-lg"
+                >
                   <Image
                     src={image}
                     alt={`Vista ${index + 2} del proyecto residencial en Chiclayo`}
@@ -201,20 +248,30 @@ export function HomePageContent() {
               ))}
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">Proyecto destacado</p>
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
+                Proyecto destacado
+              </p>
               <h2 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-4xl">
                 Tu primera casa en Chiclayo
               </h2>
               <p className="mt-4 text-sm font-semibold text-accent-dark">
-                {featuredProperty.type} · {featuredProperty.district}, {featuredProperty.city}
+                {featuredProperty.type} · {featuredProperty.district},{" "}
+                {featuredProperty.city}
               </p>
               <p className="mt-5 text-base leading-relaxed text-on-surface-variant">
-                Una alternativa real para dejar de alquilar y empezar una nueva etapa con tu familia.
+                Una alternativa real para dejar de alquilar y empezar una nueva
+                etapa con tu familia.
               </p>
               <ul className="mt-7 space-y-4">
                 {projectHighlights.map((highlight) => (
-                  <li key={highlight} className="flex gap-3 text-sm leading-relaxed text-on-surface-variant">
-                    <ShieldCheck aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-accent-dark" />
+                  <li
+                    key={highlight}
+                    className="flex gap-3 text-sm leading-relaxed text-on-surface-variant"
+                  >
+                    <ShieldCheck
+                      aria-hidden="true"
+                      className="mt-0.5 size-5 shrink-0 text-accent-dark"
+                    />
                     {highlight}
                   </li>
                 ))}
@@ -246,13 +303,18 @@ export function HomePageContent() {
           </div>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             {testimonials.map((testimonial) => (
-              <figure key={testimonial.author} className="rounded-lg border border-white/12 bg-white/8 p-7">
+              <figure
+                key={testimonial.author}
+                className="rounded-lg border border-white/12 bg-white/8 p-7"
+              >
                 <blockquote className="text-base leading-relaxed text-white/82">
                   “{testimonial.quote}”
                 </blockquote>
                 <figcaption className="mt-5">
                   <p className="font-bold text-accent">{testimonial.author}</p>
-                  <p className="mt-1 text-sm text-white/55">{testimonial.context}</p>
+                  <p className="mt-1 text-sm text-white/55">
+                    {testimonial.context}
+                  </p>
                 </figcaption>
               </figure>
             ))}
@@ -260,11 +322,19 @@ export function HomePageContent() {
         </Container>
       </section>
 
-      <section id="proceso" className="scroll-mt-24 bg-surface-container-low py-16 md:py-20">
+      <section
+        id="proceso"
+        className="scroll-mt-24 bg-surface-container-low py-16 md:py-20"
+      >
         <Container>
-          <h2 className="text-center text-3xl font-bold text-primary">Tu camino a casa propia</h2>
+          <h2 className="text-center text-3xl font-bold text-primary">
+            Tu camino a casa propia
+          </h2>
           <ol className="relative mt-12 grid gap-8 md:grid-cols-5 md:gap-4">
-            <span aria-hidden="true" className="absolute left-[10%] right-[10%] top-5 hidden h-px bg-outline-variant md:block" />
+            <span
+              aria-hidden="true"
+              className="absolute left-[10%] right-[10%] top-5 hidden h-px bg-outline-variant md:block"
+            />
             {journeySteps.map(({ step, title, description }) => (
               <li key={step} className="relative text-center">
                 <span
@@ -276,8 +346,12 @@ export function HomePageContent() {
                 >
                   {step}
                 </span>
-                <h3 className="mt-4 text-sm font-semibold text-primary">{title}</h3>
-                <p className="mx-auto mt-2 max-w-40 text-xs leading-relaxed text-on-surface-variant">{description}</p>
+                <h3 className="mt-4 text-sm font-semibold text-primary">
+                  {title}
+                </h3>
+                <p className="mx-auto mt-2 max-w-40 text-xs leading-relaxed text-on-surface-variant">
+                  {description}
+                </p>
               </li>
             ))}
           </ol>
@@ -288,9 +362,12 @@ export function HomePageContent() {
         <Container>
           <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
             <div>
-              <h2 className="text-3xl font-bold text-primary">¿La vemos juntos?</h2>
+              <h2 className="text-3xl font-bold text-primary">
+                ¿La vemos juntos?
+              </h2>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-on-surface-variant">
-                Escríbenos por WhatsApp. Te contamos precio, requisitos y horarios de visita.
+                Escríbenos por WhatsApp. Te contamos precio, requisitos y
+                horarios de visita.
               </p>
               <Link href={whatsappHref} className={`${primaryButton} mt-6`}>
                 Quiero agendar visita
@@ -298,24 +375,45 @@ export function HomePageContent() {
               </Link>
               <dl className="mt-8 space-y-5">
                 <div className="flex gap-4">
-                  <Mail aria-hidden="true" className="mt-1 size-5 text-accent-dark" />
+                  <Mail
+                    aria-hidden="true"
+                    className="mt-1 size-5 text-accent-dark"
+                  />
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">Ventas e informes</dt>
-                    <dd className="mt-1 text-sm text-primary">{SITE_CONFIG.contactEmail}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
+                      Ventas e informes
+                    </dt>
+                    <dd className="mt-1 text-sm text-primary">
+                      {SITE_CONFIG.contactEmail}
+                    </dd>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <Clock3 aria-hidden="true" className="mt-1 size-5 text-accent-dark" />
+                  <Clock3
+                    aria-hidden="true"
+                    className="mt-1 size-5 text-accent-dark"
+                  />
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">{contactDetails[1].label}</dt>
-                    <dd className="mt-1 text-sm text-primary">{contactDetails[1].value}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
+                      {contactDetails[1].label}
+                    </dt>
+                    <dd className="mt-1 text-sm text-primary">
+                      {contactDetails[1].value}
+                    </dd>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <MapPin aria-hidden="true" className="mt-1 size-5 text-accent-dark" />
+                  <MapPin
+                    aria-hidden="true"
+                    className="mt-1 size-5 text-accent-dark"
+                  />
                   <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">Oficina principal</dt>
-                    <dd className="mt-1 text-sm text-primary">{SITE_CONFIG.operationalLocation}</dd>
+                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
+                      Oficina principal
+                    </dt>
+                    <dd className="mt-1 text-sm text-primary">
+                      {SITE_CONFIG.operationalLocation}
+                    </dd>
                   </div>
                 </div>
               </dl>

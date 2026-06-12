@@ -34,8 +34,7 @@ export const services = [
   },
   {
     title: "Visita fácil",
-    description:
-      "Agenda por WhatsApp y conoce la casa sin compromiso.",
+    description: "Agenda por WhatsApp y conoce la casa sin compromiso.",
     icon: Handshake,
   },
 ] as const;
@@ -82,7 +81,7 @@ export const journeySteps = [
 ] as const;
 
 export const projectImages = [
-  "/images/placeholders/project-chiclayo.webp",
+  "/images/valle-dorado-pimentel/intro-home.png",
   "/images/valle-dorado-pimentel/salon.png",
   "/images/valle-dorado-pimentel/bed.png",
 ] as const;
@@ -94,9 +93,21 @@ export const projectHighlights = [
 ] as const;
 
 export const trustSignals = [
-  { title: "Venta directa", description: "Sin intermediarios.", icon: Handshake },
-  { title: "Chiclayo", description: "Cerca de la hermosa playa de Pimentel.", icon: MapPinned },
-  { title: "Primera casa", description: "Pensada para empezar.", icon: Sparkles },
+  {
+    title: "Venta directa",
+    description: "Sin intermediarios.",
+    icon: Handshake,
+  },
+  {
+    title: "Chiclayo",
+    description: "Cerca de la hermosa playa de Pimentel.",
+    icon: MapPinned,
+  },
+  {
+    title: "Primera casa",
+    description: "Pensada para empezar.",
+    icon: Sparkles,
+  },
 ] as const;
 
 export const testimonials = [
@@ -115,6 +126,10 @@ export const testimonials = [
 ] as const;
 
 export const contactDetails = [
-  { label: "Ventas e informes", value: "info@rosalesdesarrollo.com", icon: Handshake },
+  {
+    label: "Ventas e informes",
+    value: "info@rosalesdesarrollo.com",
+    icon: Handshake,
+  },
   { label: "Atención", value: "Lunes a sábado", icon: KeyRound },
 ] as const;

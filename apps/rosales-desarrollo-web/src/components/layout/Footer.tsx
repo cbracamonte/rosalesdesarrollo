@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { BRAND_ASSETS } from '@/config/brand-assets';
 import { footerNavigation } from '@/config/navigation';
 import { SITE_CONFIG } from '@/config/site';
@@ -28,12 +29,12 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-white/65">
               {footerNavigation.map(({ href, label }) => (
                 <li key={href}>
-                  <a
+                  <Link
                     href={href}
                     className="transition-colors hover:text-white"
                   >
                     {label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -41,7 +42,7 @@ export function Footer() {
           <div>
             <p className="text-sm font-bold">Contacto</p>
             <ul className="mt-4 space-y-3 text-sm text-white/65">
-              <li><a href="#contacto" className="hover:text-white">Solicitar información</a></li>
+              <li><Link href="/#contacto" className="hover:text-white">Solicitar información</Link></li>
               <li><a href={`mailto:${SITE_CONFIG.contactEmail}`} className="hover:text-white">{SITE_CONFIG.contactEmail}</a></li>
             </ul>
           </div>
