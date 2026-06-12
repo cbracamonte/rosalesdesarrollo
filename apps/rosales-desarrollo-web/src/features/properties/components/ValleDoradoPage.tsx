@@ -150,11 +150,6 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
                 A pocos minutos de la playa, con acceso a colegios, centros comerciales y
                 las principales vías de Chiclayo.
               </p>
-              <div className="mt-8">
-                <ButtonLink href="/contacto" variant="solid-light">
-                  Consultar este proyecto
-                </ButtonLink>
-              </div>
             </MotionReveal>
             <MotionReveal delay={0.1}>
               <Image
@@ -162,7 +157,7 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
                 alt="Vista exterior de la casa en Valle Dorado"
                 width={1200}
                 height={800}
-                className="aspect-[4/3] w-full rounded-2xl object-cover"
+                className="aspect-4/3 w-full rounded-2xl object-cover"
               />
             </MotionReveal>
           </div>
@@ -177,14 +172,11 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
               ¿Te interesa esta casa?
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-brand-carbon/75">
-              Escríbenos para conocer precios, disponibilidad o coordinar una visita al proyecto. Respondemos rápido.
+              Escríbenos para conocer precios, disponibilidad o coordinar una visita al proyecto.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <ButtonLink href="/contacto" variant="solid-dark">
+              <ButtonLink href="/#contacto" variant="solid-dark">
                 Agenda tu visita
-              </ButtonLink>
-              <ButtonLink href="/propiedades" variant="text">
-                Ver otros proyectos
               </ButtonLink>
             </div>
           </MotionReveal>
