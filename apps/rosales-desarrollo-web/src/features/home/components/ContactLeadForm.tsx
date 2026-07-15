@@ -1,32 +1,27 @@
 "use client";
 
 import { type FormEvent } from "react";
-import { MessageCircle, Send } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { SITE_CONFIG } from "@/config/site";
 
 export function ContactLeadForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
-    const subject = `Consulta inmobiliaria de ${String(form.get("name") ?? "")}`;
-    const body = [
+    const message = [
+      `Hola, quiero información sobre una propiedad.`,
       `Nombre: ${String(form.get("name") ?? "")}`,
       `Teléfono: ${String(form.get("phone") ?? "")}`,
-      `Correo: ${String(form.get("email") ?? "")}`,
       `Proyecto: ${String(form.get("project") ?? "")}`,
-      "",
       String(form.get("message") ?? ""),
-    ].join("\n");
+    ].filter(Boolean).join("\n");
 
-    window.location.href = `mailto:${SITE_CONFIG.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const number = SITE_CONFIG.whatsappNumber.replace(/\D/g, "");
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`, "_blank");
   }
 
   const fieldClass =
     "min-h-11 w-full rounded border border-outline-variant bg-surface-container-lowest px-3 text-sm text-on-surface outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15";
-  const whatsappMessage = encodeURIComponent("Hola, quiero agendar una visita para la casa en Chiclayo.");
-  const whatsappHref = SITE_CONFIG.whatsappNumber
-    ? `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${whatsappMessage}`
-    : "/#contacto";
 
   return (
     <form
@@ -47,10 +42,6 @@ export function ContactLeadForm() {
           <input className={`${fieldClass} mt-2`} name="phone" inputMode="tel" placeholder="999 000 000" required />
         </label>
       </div>
-      <label className="mt-4 block text-xs font-semibold text-on-surface-variant">
-        Correo electrónico
-        <input className={`${fieldClass} mt-2`} type="email" name="email" placeholder="email@ejemplo.com" required />
-      </label>
       <label className="mt-4 block text-xs font-semibold text-on-surface-variant">
         Proyecto de interés
         <select className={`${fieldClass} mt-2`} name="project" defaultValue="Casa en Chiclayo">
@@ -73,16 +64,9 @@ export function ContactLeadForm() {
         type="submit"
         className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded bg-accent px-5 text-sm font-bold text-primary shadow-sm transition hover:bg-accent-dark"
       >
-        Quiero ver mi casa
-        <Send aria-hidden="true" className="size-4" />
-      </button>
-      <a
-        href={whatsappHref}
-        className="mt-3 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded border border-primary px-5 text-sm font-bold text-primary transition hover:bg-primary hover:text-white"
-      >
         Escribir por WhatsApp
         <MessageCircle aria-hidden="true" className="size-4" />
-      </a>
+      </button>
     </form>
   );
 }

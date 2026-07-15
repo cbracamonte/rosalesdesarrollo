@@ -1,5 +1,3 @@
-import { SITE_CONFIG } from '@/config/site';
-
 export const contactContent = {
   hero: {
     title: 'Conversemos sobre tu próximo hogar',
@@ -9,8 +7,6 @@ export const contactContent = {
   info: {
     title: 'Contáctanos',
     items: [
-      { label: 'Email', value: SITE_CONFIG.contactEmail },
-      { label: 'Oficina', value: SITE_CONFIG.operationalLocation },
       { label: 'Horario', value: 'Lunes a sábado, respuesta en menos de 24 horas' },
       { label: 'Zona de proyectos', value: 'Pimentel, Chiclayo y Huanchaco' },
     ],
@@ -21,7 +17,7 @@ export const contactContent = {
       'Precios y formas de pago disponibles',
       'Estado actual de obra y fecha de entrega',
       'Coordinar una visita al proyecto',
-      'Resolver dudas sobre ubicación y características',
+      'Consultar características del proyecto',
     ],
   },
 } as const;

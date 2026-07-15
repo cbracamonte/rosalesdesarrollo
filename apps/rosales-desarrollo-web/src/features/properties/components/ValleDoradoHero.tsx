@@ -79,7 +79,7 @@ export function ValleDoradoHero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.6 }}
           >
-            <ButtonLink href="/#contacto" variant="solid-light">
+            <ButtonLink href="/contacto" variant="solid-light">
               Agenda tu visita
             </ButtonLink>
             <ButtonLink href="#galeria" variant="outline">

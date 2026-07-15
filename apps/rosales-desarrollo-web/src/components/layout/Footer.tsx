@@ -3,13 +3,12 @@ import Link from 'next/link';
 import { BRAND_ASSETS } from '@/config/brand-assets';
 import { footerNavigation } from '@/config/navigation';
 import { SITE_CONFIG } from '@/config/site';
-import { MapPin } from 'lucide-react';
 
 export function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="mx-auto max-w-[1280px] px-4 py-12 sm:px-6">
-        <div className="grid gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.4fr_1fr_1fr_.7fr]">
+        <div className="grid gap-10 border-b border-white/15 pb-10 md:grid-cols-[1.4fr_1fr_1fr]">
           <div className="max-w-sm">
             <Image
               src={BRAND_ASSETS.isotipo}
@@ -42,22 +41,13 @@ export function Footer() {
           <div>
             <p className="text-sm font-bold">Contacto</p>
             <ul className="mt-4 space-y-3 text-sm text-white/65">
-              <li><Link href="/#contacto" className="hover:text-white">Solicitar información</Link></li>
-              <li><a href={`mailto:${SITE_CONFIG.contactEmail}`} className="hover:text-white">{SITE_CONFIG.contactEmail}</a></li>
+              <li><Link href="/contacto" className="hover:text-white">Solicitar información</Link></li>
             </ul>
-          </div>
-          <div>
-            <p className="text-sm font-bold">Oficina</p>
-            <p className="mt-4 flex gap-2 text-sm leading-relaxed text-white/65">
-              <MapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-accent" />
-              {SITE_CONFIG.operationalLocation}
-            </p>
           </div>
         </div>
 
         <div className="flex flex-col gap-2 pt-6 text-xs text-white/45 md:flex-row md:items-center md:justify-between">
           <p>&copy; {new Date().getFullYear()} {SITE_CONFIG.name}. Todos los derechos reservados.</p>
-          <p>{SITE_CONFIG.location}</p>
         </div>
       </div>
     </footer>

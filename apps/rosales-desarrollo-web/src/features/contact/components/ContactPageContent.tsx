@@ -4,6 +4,7 @@ import { WebPageJsonLd } from '@/components/seo/WebPageJsonLd';
 import { ButtonLink } from '@/components/ui/ButtonLink';
 import { InfoCard } from '@/components/ui/InfoCard';
 import { PageIntro } from '@/components/ui/PageIntro';
+import { SITE_CONFIG } from '@/config/site';
 import { contactContent } from '../data/contact-content';
 
 export function ContactPageContent() {
@@ -22,11 +23,11 @@ export function ContactPageContent() {
           <PageIntro title={hero.title} description={hero.description} tone="light" />
           <div className="overflow-hidden rounded-[2.4rem] bg-brand-white p-4 shadow-[0_24px_70px_rgba(20,23,32,0.08)]">
             <Image
-              src="/images/placeholders/advisor-placeholder.webp"
-              alt="Placeholder de asesoría inmobiliaria para Rosales Desarrollo"
+              src="/images/asesora.png"
+              alt="Asesora de Rosales Desarrollo en casa modelo Valle Dorado, Pimentel"
               width={1000}
               height={1200}
-              className="aspect-[1/1.08] w-full rounded-4xl object-cover"
+              className="aspect-[1/1.08] w-full rounded-4xl object-cover object-center"
             />
           </div>
         </div>
@@ -62,10 +63,15 @@ export function ContactPageContent() {
                   ))}
                 </ul>
                 <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                  <ButtonLink href={`mailto:${info.items[0].value}`} variant="solid-dark">
-                    Escribir por email
+                  <ButtonLink
+                    href={`https://wa.me/${SITE_CONFIG.whatsappNumber.replace('+', '')}?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20proyectos`}
+                    variant="solid-dark"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Escribir por WhatsApp
                   </ButtonLink>
-                  <ButtonLink href="/propiedades" variant="text" className="text-brand-carbon hover:text-brand-night">
+                  <ButtonLink href="/propiedades/casa-pimentel-valle-dorado" variant="outline-dark">
                     Ver proyectos activos
                   </ButtonLink>
                 </div>

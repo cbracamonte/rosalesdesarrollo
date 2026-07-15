@@ -90,9 +90,21 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
         </div>
       </Section>
 
+      {/* Exterior — cinematic full-bleed break, no Container */}
+      <MotionReveal>
+        <Image
+          src="/images/valle-dorado-pimentel/full-image-lobby.png"
+          alt="Fachada nocturna y exteriores de Casa Valle Dorado, Pimentel"
+          width={2400}
+          height={1600}
+          sizes="100vw"
+          className="w-full"
+        />
+      </MotionReveal>
+
       {/* Gallery */}
       <div id="galeria">
-      <Section tone="light" className="py-0" as="div">
+      <Section tone="light" className="py-14 md:py-20" as="div">
         <MotionReveal>
           <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
             {GALLERY_IMAGES.map((img, index) => (
@@ -114,6 +126,31 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
         </MotionReveal>
       </Section>
       </div>
+
+      {/* Project brochure — floor plans & interior renders */}
+      <Section tone="light" className="py-14 md:py-20">
+        <MotionReveal>
+          <div className="mb-10 max-w-2xl">
+            <h2 className="font-heading text-3xl font-bold text-brand-carbon md:text-4xl">
+              Planos y ambientes
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-brand-carbon/75">
+              Cada espacio diseñado para el uso real de tu familia: sala amplia, cocina integrada,
+              dormitorios con buena ventilación y estacionamiento propio.
+            </p>
+          </div>
+        </MotionReveal>
+        <MotionReveal delay={0.1}>
+          <Image
+            src="/images/valle-dorado-pimentel/full-image.png"
+            alt="Plano de distribución e imágenes de interiores de Casa Valle Dorado, Pimentel"
+            width={2400}
+            height={1600}
+            sizes="(min-width: 1280px) 1280px, 100vw"
+            className="w-full rounded-[2rem] shadow-[0_24px_80px_rgba(20,23,32,0.10)]"
+          />
+        </MotionReveal>
+      </Section>
 
       {/* Features */}
       <Section tone="light" className="py-14 md:py-20">
@@ -175,7 +212,7 @@ export function ValleDoradoPage({ property }: ValleDoradoPageProps) {
               Escríbenos para conocer precios, disponibilidad o coordinar una visita al proyecto.
             </p>
             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <ButtonLink href="/#contacto" variant="solid-dark">
+              <ButtonLink href="/contacto" variant="solid-dark">
                 Agenda tu visita
               </ButtonLink>
             </div>

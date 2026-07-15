@@ -81,7 +81,7 @@ export const journeySteps = [
 ] as const;
 
 export const projectImages = [
-  "/images/valle-dorado-pimentel/intro-home.png",
+  "/images/valle-dorado-pimentel/full-image-lobby.png",
   "/images/valle-dorado-pimentel/salon.png",
   "/images/valle-dorado-pimentel/bed.png",
 ] as const;
@@ -126,10 +126,5 @@ export const testimonials = [
 ] as const;
 
 export const contactDetails = [
-  {
-    label: "Ventas e informes",
-    value: "info@rosalesdesarrollo.com",
-    icon: Handshake,
-  },
   { label: "Atención", value: "Lunes a sábado", icon: KeyRound },
 ] as const;

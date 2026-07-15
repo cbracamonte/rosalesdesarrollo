@@ -74,7 +74,7 @@ export function AboutPageContent() {
           description="Si deseas conocer el proyecto actual o conversar con nuestro equipo, te acompañamos con información clara."
           actions={
             <>
-              <ButtonLink href="/propiedades" variant="solid-light">
+              <ButtonLink href="/propiedades/casa-pimentel-valle-dorado" variant="solid-light">
                 Ver proyectos
               </ButtonLink>
               <ButtonLink href="/contacto">

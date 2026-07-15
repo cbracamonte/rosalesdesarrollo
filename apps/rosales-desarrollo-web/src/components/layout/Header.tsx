@@ -34,7 +34,7 @@ export function Header() {
           ))}
         </ul>
         <Link
-          href="/#contacto"
+          href="/contacto"
           className="inline-flex min-h-10 items-center gap-2 rounded bg-accent px-4 text-sm font-bold text-primary transition hover:bg-accent-dark"
         >
           <MessageCircle aria-hidden="true" className="size-4" />

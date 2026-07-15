@@ -3,8 +3,6 @@ import Link from "next/link";
 import {
   CircleCheck,
   Clock3,
-  Mail,
-  MapPin,
   MessageCircle,
   ShieldCheck,
 } from "lucide-react";
@@ -375,59 +373,20 @@ export function HomePageContent() {
               </Link>
               <dl className="mt-8 space-y-5">
                 <div className="flex gap-4">
-                  <Mail
-                    aria-hidden="true"
-                    className="mt-1 size-5 text-accent-dark"
-                  />
-                  <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      Ventas e informes
-                    </dt>
-                    <dd className="mt-1 text-sm text-primary">
-                      {SITE_CONFIG.contactEmail}
-                    </dd>
-                  </div>
-                </div>
-                <div className="flex gap-4">
                   <Clock3
                     aria-hidden="true"
                     className="mt-1 size-5 text-accent-dark"
                   />
                   <div>
                     <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      {contactDetails[1].label}
+                      {contactDetails[0].label}
                     </dt>
                     <dd className="mt-1 text-sm text-primary">
-                      {contactDetails[1].value}
-                    </dd>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <MapPin
-                    aria-hidden="true"
-                    className="mt-1 size-5 text-accent-dark"
-                  />
-                  <div>
-                    <dt className="text-xs font-bold uppercase tracking-wide text-on-surface-variant">
-                      Oficina principal
-                    </dt>
-                    <dd className="mt-1 text-sm text-primary">
-                      {SITE_CONFIG.operationalLocation}
+                      {contactDetails[0].value}
                     </dd>
                   </div>
                 </div>
               </dl>
-              <div className="relative mt-8 min-h-44 overflow-hidden rounded-lg bg-surface-container">
-                <Image
-                  src="/images/placeholders/map-pattern.svg"
-                  alt="Representación de la ubicación de Rosales Desarrollo en Chiclayo"
-                  fill
-                  className="object-cover opacity-65"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <MapPin aria-hidden="true" className="size-9 text-primary" />
-                </div>
-              </div>
             </div>
             <ContactLeadForm />
           </div>
