@@ -1,11 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  CircleCheck,
-  Clock3,
-  MessageCircle,
-  ShieldCheck,
-} from "lucide-react";
+import { Clock3, MessageCircle, ShieldCheck } from "lucide-react";
 import { WebPageJsonLd } from "@/components/seo/WebPageJsonLd";
 import { Container } from "@/components/layout/Container";
 import { getProperties } from "@/features/properties";
@@ -17,7 +12,6 @@ import {
   projectHighlights,
   projectImages,
   services,
-  testimonials,
   trustSignals,
 } from "../data/home-page-content";
 import { ContactLeadForm } from "./ContactLeadForm";
@@ -28,7 +22,7 @@ const primaryButton =
 export function HomePageContent() {
   const featuredProperty = getProperties()[0];
   const whatsappMessage = encodeURIComponent(
-    "Hola, quiero información sobre la casa en Chiclayo de Rosales Desarrollo.",
+    `Hola, quiero información sobre ${featuredProperty.name}.`,
   );
   const whatsappHref = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${whatsappMessage}`;
 
@@ -53,22 +47,24 @@ export function HomePageContent() {
         <Container className="relative z-10 py-20">
           <div className="max-w-3xl">
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-accent">
-              Casas propias en Chiclayo
+              {featuredProperty.status}
             </p>
             <h1 className="text-4xl font-bold leading-[1.1] tracking-[-0.02em] sm:text-5xl lg:text-6xl">
-              Tu casa propia empieza aquí
+              {featuredProperty.name}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/82 md:text-lg">
-              Compra directo con Rosales Desarrollo, sin comisión. Agenda tu
-              visita y evalúa si esta casa puede ser para tu familia.
+              {featuredProperty.description}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              {/* <Link href="#proyecto-chiclayo" className={primaryButton}>
-                Quiero ver mi casa <ArrowRight aria-hidden="true" className="size-4" />
-              </Link> */}
-              <Link href={whatsappHref} className={primaryButton}>
+              <Link href="#proyecto-chiclayo" className={primaryButton}>
+                Ver el proyecto
+              </Link>
+              <Link
+                href={whatsappHref}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-white/40 px-6 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
                 <MessageCircle aria-hidden="true" className="size-4" />
-                Preguntar por WhatsApp
+                Agendar visita
               </Link>
             </div>
             <div className="mt-10 grid gap-3 sm:grid-cols-3">
@@ -93,62 +89,78 @@ export function HomePageContent() {
         </Container>
       </section>
 
-      <section className="py-16 md:py-20">
+      <section id="proyecto-chiclayo" className="scroll-mt-24 py-16 md:py-20">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-center">
-            <div className="relative">
-              <Image
-                src="/images/valle-dorado-pimentel/intro-home.png"
-                alt="Planos y casco de seguridad de un proyecto inmobiliario"
-                width={1200}
-                height={850}
-                className="aspect-[1.35/1] w-full rounded-lg object-cover shadow-[0_4px_20px_rgba(10,37,64,0.08)]"
-              />
-              <div className="absolute -bottom-5 right-5 max-w-56 rounded bg-primary px-6 py-5 text-white shadow-xl">
-                <span className="block text-lg font-bold text-accent">
-                  Agenda tu visita
-                </span>
-                <span className="mt-1 block text-xs leading-relaxed">
-                  Conoce la casa antes de decidir.
-                </span>
+          <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="relative min-h-115 overflow-hidden rounded-lg sm:col-span-2">
+                <Image
+                  src={projectImages[0]}
+                  alt={`${featuredProperty.name}, ${featuredProperty.district}`}
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover"
+                />
               </div>
+              {projectImages.slice(1).map((image, index) => (
+                <div
+                  key={image}
+                  className="relative min-h-56 overflow-hidden rounded-lg"
+                >
+                  <Image
+                    src={image}
+                    alt={`Vista ${index + 2} del proyecto residencial en Chiclayo`}
+                    fill
+                    sizes="(min-width: 640px) 30vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
             </div>
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
-                Sin intermediarios
+                Conoce la casa
               </p>
               <h2 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-4xl">
-                Compra directo, pregunta claro y decide tranquilo
+                Recorre cada espacio antes de decidir
               </h2>
+              <p className="mt-4 text-sm font-semibold text-accent-dark">
+                {featuredProperty.type} · {featuredProperty.district},{" "}
+                {featuredProperty.city}
+              </p>
               <p className="mt-5 text-base leading-relaxed text-on-surface-variant">
-                Sabemos que comprar una casa da miedo: papeles, pagos, créditos
-                y dudas. Por eso hablamos directo, mostramos la vivienda y te
-                explicamos el proceso sin letra chica.
+                Una alternativa real para dejar de alquilar y empezar una nueva
+                etapa con tu familia.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-on-surface-variant">
-                Te orientamos en el proceso del bono Techo Propio o Mi Vivienda
-                y te ayudamos a evaluar si calificas para un crédito
-                hipotecario.
-              </p>
-              <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-                {[
-                  "Sin comisión",
-                  "Trato directo",
-                  "Asesoría",
-                  "Agenda por WhatsApp",
-                ].map((item) => (
+              <ul className="mt-7 space-y-4">
+                {projectHighlights.map((highlight) => (
                   <li
-                    key={item}
-                    className="flex items-center gap-2 text-sm text-on-surface-variant"
+                    key={highlight}
+                    className="flex gap-3 text-sm leading-relaxed text-on-surface-variant"
                   >
-                    <CircleCheck
+                    <ShieldCheck
                       aria-hidden="true"
-                      className="size-4 text-accent-dark"
+                      className="mt-0.5 size-5 shrink-0 text-accent-dark"
                     />
-                    {item}
+                    {highlight}
                   </li>
                 ))}
               </ul>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href={`/propiedades/${featuredProperty.slug}`}
+                  className={primaryButton}
+                >
+                  Ver detalles
+                </Link>
+                <Link
+                  href={whatsappHref}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-primary px-6 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
+                >
+                  Agendar visita
+                  <MessageCircle aria-hidden="true" className="size-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </Container>
@@ -212,109 +224,6 @@ export function HomePageContent() {
                   </p>
                 </div>
               </article>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section id="proyecto-chiclayo" className="scroll-mt-24 py-16 md:py-20">
-        <Container>
-          <div className="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-center">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div className="relative min-h-115 overflow-hidden rounded-lg sm:col-span-2">
-                <Image
-                  src={projectImages[0]}
-                  alt={`${featuredProperty.name}, ${featuredProperty.district}`}
-                  fill
-                  sizes="(min-width: 1024px) 60vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-              {projectImages.slice(1).map((image, index) => (
-                <div
-                  key={image}
-                  className="relative min-h-56 overflow-hidden rounded-lg"
-                >
-                  <Image
-                    src={image}
-                    alt={`Vista ${index + 2} del proyecto residencial en Chiclayo`}
-                    fill
-                    sizes="(min-width: 640px) 30vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-secondary">
-                Proyecto destacado
-              </p>
-              <h2 className="mt-3 text-3xl font-bold leading-tight text-primary md:text-4xl">
-                Tu primera casa en Chiclayo
-              </h2>
-              <p className="mt-4 text-sm font-semibold text-accent-dark">
-                {featuredProperty.type} · {featuredProperty.district},{" "}
-                {featuredProperty.city}
-              </p>
-              <p className="mt-5 text-base leading-relaxed text-on-surface-variant">
-                Una alternativa real para dejar de alquilar y empezar una nueva
-                etapa con tu familia.
-              </p>
-              <ul className="mt-7 space-y-4">
-                {projectHighlights.map((highlight) => (
-                  <li
-                    key={highlight}
-                    className="flex gap-3 text-sm leading-relaxed text-on-surface-variant"
-                  >
-                    <ShieldCheck
-                      aria-hidden="true"
-                      className="mt-0.5 size-5 shrink-0 text-accent-dark"
-                    />
-                    {highlight}
-                  </li>
-                ))}
-              </ul>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href={whatsappHref} className={primaryButton}>
-                  Agendar visita
-                  <MessageCircle aria-hidden="true" className="size-4" />
-                </Link>
-                <Link
-                  href={`/propiedades/${featuredProperty.slug}`}
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded border border-primary px-6 text-sm font-semibold text-primary transition hover:bg-primary hover:text-white"
-                >
-                  Ver detalles
-                </Link>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      <section className="bg-primary py-16 text-white md:py-20">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold">Familias que dieron el paso</h2>
-            <p className="mt-3 text-sm leading-relaxed text-white/65">
-              Historias como las que queremos construir en Chiclayo.
-            </p>
-          </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {testimonials.map((testimonial) => (
-              <figure
-                key={testimonial.author}
-                className="rounded-lg border border-white/12 bg-white/8 p-7"
-              >
-                <blockquote className="text-base leading-relaxed text-white/82">
-                  “{testimonial.quote}”
-                </blockquote>
-                <figcaption className="mt-5">
-                  <p className="font-bold text-accent">{testimonial.author}</p>
-                  <p className="mt-1 text-sm text-white/55">
-                    {testimonial.context}
-                  </p>
-                </figcaption>
-              </figure>
             ))}
           </div>
         </Container>
